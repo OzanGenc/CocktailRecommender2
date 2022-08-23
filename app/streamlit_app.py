@@ -11,5 +11,5 @@ if st.button("Get Next Random Digit"):
 
     # classify
     
-    st.text("Predicted to be  : {}".format(np.argmax(prediction)))
+    st.text("Predicted to be  : {}".format(prediction)
     

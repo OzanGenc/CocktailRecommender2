@@ -10,7 +10,8 @@ api_url = "https://wctppk9gul.execute-api.us-east-1.amazonaws.com/deploy_demo"
 
 user_input = st.text_input(label="Please write a cocktail name.").upper()
 
-todo = {user_input}
+
+todo = user_input
 response = requests.put(api_url, json=todo)
 
 if user_input:

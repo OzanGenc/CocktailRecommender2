@@ -15,5 +15,5 @@ todo = user_input
 response = requests.put(api_url, json=todo)
 
 if user_input:
-  st.markdown("**Given Cocktail is** {}".format(response))
+  st.markdown("**Given Cocktail is** {}".format(response.json()))
 

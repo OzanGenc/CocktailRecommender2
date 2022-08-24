@@ -15,9 +15,10 @@ user_input = st.text_input(label="Please write a cocktail name.").upper()
 
 if user_input:
   
+  st.markdown("**API URL is** {}".format(api_url))
   response = requests.post(api_url, json = user_input)
   response_ = response.json()["body"]
   st.markdown("**Given Cocktail3 is** {}".format(response_))
-  #st.markdown("**Given Cocktail2 is** {}".format(response.json()))
+  
   
 

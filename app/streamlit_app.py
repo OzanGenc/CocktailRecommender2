@@ -1,12 +1,14 @@
 import streamlit as st
 import requests
+import os
 
 
 st.title("Cocktail Recommender 2.0!")
 
 user_input = None
 
-api_url = "https://wcdmx034sl.execute-api.us-east-1.amazonaws.com/prod/demo"
+#api_url = "https://wcdmx034sl.execute-api.us-east-1.amazonaws.com/prod/demo"
+api_url = os.environ.get("api_url")
 
 user_input = st.text_input(label="Please write a cocktail name.").upper()
 

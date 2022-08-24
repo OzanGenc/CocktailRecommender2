@@ -6,7 +6,7 @@ st.title("Cocktail Recommender 2.0!")
 
 user_input = None
 
-api_url = "https://wctppk9gul.execute-api.us-east-1.amazonaws.com/deploy_demo"
+api_url = "https://rhlxfhbjqj.execute-api.us-east-1.amazonaws.com/prod"
 
 user_input = st.text_input(label="Please write a cocktail name.").upper()
 

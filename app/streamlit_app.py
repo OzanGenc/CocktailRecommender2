@@ -15,7 +15,7 @@ myobj = "vodka"
 
 response = requests.post(api_url, json = myobj)
 
-response_ = responseresponse.json()["body"]
+response_ = response.json()["body"]
 
 #response = requests.request("POST", api_url, data=user_input)
 

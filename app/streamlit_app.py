@@ -11,7 +11,8 @@ api_url = "https://wcdmx034sl.execute-api.us-east-1.amazonaws.com/prod/demo"
 user_input = st.text_input(label="Please write a cocktail name.").upper()
 
 
-myobj = "vodka"
+#myobj = "vodka"
+myjob = user_input
 
 response = requests.post(api_url, json = myobj)
 

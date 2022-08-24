@@ -13,7 +13,7 @@ user_input = st.text_input(label="Please write a cocktail name.").upper()
 
 
 
-response = requests.request("POST", api_url, data={user_input})
+response = requests.request("POST", api_url, data=user_input)
 
 if user_input:
   st.markdown("**Given Cocktail1 is** {}".format(response.text()))

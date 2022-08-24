@@ -15,12 +15,12 @@ myobj = "vodka"
 
 response = requests.post(api_url, json = myobj)
 
-
+response_ = responseresponse.json()["body"]
 
 #response = requests.request("POST", api_url, data=user_input)
 
 if user_input:
-  st.markdown("**Given Cocktail3 is** {}".format(response))
+  st.markdown("**Given Cocktail3 is** {}".format(response_))
   #st.markdown("**Given Cocktail2 is** {}".format(response.json()))
   
 

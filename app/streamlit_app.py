@@ -32,7 +32,7 @@ st.title("Cocktail Recommender 2.0!")
 
 user_input = None
 
-
+# input api_url directly to the post method, don't assign it to a variable. DELETE this line.
 api_url = os.environ.get("api_url")
 
 user_input = st.text_input(label="Please write a cocktail name.").upper()

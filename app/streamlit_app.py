@@ -53,11 +53,16 @@ if user_input:
     
   except:
   
-    # input api_url directly to the post method, don't assign it to a variable. DELETE this line.
-    #api_url = os.environ.get("api_url")
-    response = requests.post(api_url, json = user_input)
-    response_ = response.json()["body"]
-    st.markdown("**Given Cocktail is** {}".format(response_))
+    try:
+      # input api_url directly to the post method, don't assign it to a variable. DELETE this line.
+      #api_url = os.environ.get("api_url")
+      response = requests.post(api_url, json = user_input)
+      response_ = response.json()["body"]
+      st.markdown("**Given Cocktail is** {}".format(response_))
+      
+    except:
+      st.markdown("**Embedding model currently is not in service, use [first version of the application](https://cocktail-recommender.herokuapp.com/).**")
+      
   
   
 

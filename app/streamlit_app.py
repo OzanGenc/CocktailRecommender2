@@ -60,7 +60,7 @@ if user_input:
     recommended_cocktail_list = []
 
     for i in range(len(recommended_cocktails)):
-        recommended_cocktail_list.append('[{}]https://cocktailpartyapp.com/'.format(recommended_cocktails[i]))
+        recommended_cocktail_list.append('[{}](https://cocktailpartyapp.com/)'.format(recommended_cocktails[i]))
     
     
     

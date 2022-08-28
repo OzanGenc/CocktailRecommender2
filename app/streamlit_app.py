@@ -50,9 +50,9 @@ if user_input:
   
   #try:
         
-  recommended_cocktails = similarity_df.loc[user_input.upper()].sort_values(ascending=False)[1:6]
+  recommended_cocktails = similarity_df.loc[user_input].sort_values(ascending=False)[1:6]
     
-  st.markdown("**Given Cocktail is** [{}]({})".format(user_input.upper(), df.loc[user_input.upper()]['link']))
+  st.markdown("**Given Cocktail is** [{}]({})".format(user_input, df.loc[user_input]['link']))
     
   st.markdown("**Recommended Cocktails are** [{}]({}), [{}]({}), [{}]({}), [{}]({}), [{}]({})".format(
         recommended_cocktails.index[0], df.loc[recommended_cocktails.index[0]]['link'], 

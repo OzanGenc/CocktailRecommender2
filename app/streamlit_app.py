@@ -51,13 +51,20 @@ if user_input:
         
     recommended_cocktails = similarity_df.loc[user_input.upper()].sort_values(ascending=False)[1:5]
     
-    st.markdown("**Given Cocktail3 is** {}".format(recommended_cocktails))
+    st.markdown("**Given Cocktail is** {}".format(recommended_cocktails))
+    
+    
+    fig, ax = plt.subplots()
+    ax.barh(recommended_cocktails.index, recommended_cocktails.values)
+    ax.invert_yaxis()
+    ax.set_title('Similarities to given cocktail')
+    st.pyplot(fig)
 
   except:
   
     response = requests.post(api_url, json = user_input)
     response_ = response.json()["body"]
-    st.markdown("**Given Cocktail3 is** {}".format(response_))
+    st.markdown("**Given Cocktail is** {}".format(response_))
   
   
 

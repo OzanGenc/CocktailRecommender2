@@ -35,7 +35,7 @@ if user_input:
     
     st.markdown("**Given Cocktail is** [{}]({})".format(user_input, df.loc[user_input]['link']))
     
-    st.markdown("**Recommended Cocktails are** )
+    st.markdown("**Recommended Cocktails are**" )
     
     st.markdown("**[{}]({}) - :cocktail: - [{}]({}) - :tropical_drink: - [{}]({}) - :wine_glass: - [{}]({}) - :beer: - [{}]({})**".format(
             recommended_cocktails.index[0], df.loc[recommended_cocktails.index[0]]['link'], 

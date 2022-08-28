@@ -35,10 +35,10 @@ def lambda_handler(event, context):
 
 
 embedding_button = st.radio(
-  "What's your favorite movie genre",
-  ('Ingredients', 'All Content'))
+  "Similarity will be calculated using either Ingredients or All Information about the cocktail.",
+  ('Only Ingredients', 'All Information'))
 
-if embedding_button == 'Ingredients':
+if embedding_button == 'Only Ingredients':
   st.write('You selected comedy.')
   df = pd.read_pickle("./df_universal_embedded_ingredients.pkl")
   similarity_df = pd.read_pickle("./similarity_ingredients_df.pkl")

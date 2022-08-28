@@ -61,7 +61,7 @@ if user_input:
       st.markdown("**Given Cocktail is** {}".format(response_))
       
     except:
-      st.markdown("**Given cocktail couldn't be found in the database. Also, embedding model currently is not in service, please use [first version of the application](https://cocktail-recommender.herokuapp.com/).**")
+      st.markdown("**The given cocktail couldn't be found in the database. Also, the embedding model is not currently in service, please use the [first version of the application](https://cocktail-recommender.herokuapp.com/).**")
       
   
   

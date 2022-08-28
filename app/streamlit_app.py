@@ -13,20 +13,16 @@ embedding_button = st.radio(
   ('Only Ingredients', 'All Information'))
 
 if embedding_button == 'Only Ingredients':
-  st.write('You selected comedy.')
   df = pd.read_pickle("./df_universal_embedded_ingredients.pkl")
   similarity_df = pd.read_pickle("./similarity_ingredients_df.pkl")
 
 else:
-  st.write("You didn't select comedy.")
   df = pd.read_pickle("./df_universal_embedded_content.pkl")
   similarity_df = pd.read_pickle("./similarity_content_df.pkl")
         
         
 
 user_input = None
-
-
 
 user_input = st.text_input(label="Please write a cocktail name.").upper()
 

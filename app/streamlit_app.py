@@ -2,6 +2,7 @@ import streamlit as st
 import requests
 import os
 import pandas as pd
+import matplotlib.pyplot as plt
 
 '''
 Follow instructions from here in order to create API Gateway. 

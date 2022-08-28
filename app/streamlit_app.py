@@ -30,8 +30,7 @@ def lambda_handler(event, context):
 
 '''
 
-# embedding_type is 'ingredients' or 'content'
-#embedding_type = 'ingredients' 
+st.title("Cocktail Recommender 2.0!")
 
 
 embedding_button = st.radio(
@@ -50,12 +49,7 @@ else:
         
         
 
-#df = pd.read_pickle("./df_universal_embedded_{}.pkl".format(embedding_type))
-#similarity_df = pd.read_pickle("./similarity_{}_df.pkl".format(embedding_type))
 
-
-
-st.title("Cocktail Recommender 2.0!")
 
 
 user_input = None

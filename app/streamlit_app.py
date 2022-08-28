@@ -1,6 +1,7 @@
 import streamlit as st
 import requests
 import os
+import pandas as pd
 
 '''
 Follow instructions from here in order to create API Gateway. 
@@ -28,21 +29,35 @@ def lambda_handler(event, context):
 
 '''
 
+df = pd.read_pickle("./df_universal_embedded.pkl")
+similarity_df = pd.read_pickle("./similarity_df.pkl")
+
 st.title("Cocktail Recommender 2.0!")
+
 
 user_input = None
 
 # input api_url directly to the post method, don't assign it to a variable. DELETE this line.
-api_url = os.environ.get("api_url")
+#api_url = os.environ.get("api_url")
 
 user_input = st.text_input(label="Please write a cocktail name.").upper()
 
 
+
+
 if user_input:
   
-  response = requests.post(api_url, json = user_input)
-  response_ = response.json()["body"]
-  st.markdown("**Given Cocktail3 is** {}".format(response_))
+  try:
+        
+    recommended_cocktails = similarity_df.loc[user_input.upper()].sort_values(ascending=False)[1:5]
+    
+    st.markdown("**Given Cocktail3 is** {}".format(recommended_cocktails))
+
+  except:
+  
+    response = requests.post(api_url, json = user_input)
+    response_ = response.json()["body"]
+    st.markdown("**Given Cocktail3 is** {}".format(response_))
   
   
 

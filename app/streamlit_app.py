@@ -54,9 +54,15 @@ if user_input:
     
     st.markdown("**Given Cocktail is** {}".format(recommended_cocktails))
     
+    recommended_cocktail_list = []
+
+    for i in range(len(recommended_cocktails)):
+        recommended_cocktail_list.append('[{}]https://cocktailpartyapp.com/'.format(recommended_cocktails[i]))
+    
+    
     
     fig, ax = plt.subplots()
-    ax.barh(recommended_cocktails.index, recommended_cocktails.values)
+    ax.barh(recommended_cocktail_list, recommended_cocktails.values)
     ax.invert_yaxis()
     ax.set_title('Similarities to given cocktail')
     st.pyplot(fig)

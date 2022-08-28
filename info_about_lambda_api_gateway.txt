@@ -1,0 +1,41 @@
+'''
+Follow instructions from here in order to create API Gateway. 
+
+https://shreyansh26.github.io/post/2022-01-23_model_deployment_using_aws_lambda/
+
+
+Create Lambda function from scratch. On Heroku reveal config vars insert api_url without "" (quotes).
+
+
+
+
+
+Lambda function example for BERT
+
+
+import json
+import boto3
+
+
+def lambda_handler(event, context):
+    # TODO implement
+    encoded_text = event.encode('utf-8')
+    
+    
+    endpoint_name = 'jumpstart-dft-tf-tcembedding-bert-en-uncased-l-2-h-256'
+    client = boto3.client('runtime.sagemaker')
+    response = client.invoke_endpoint(EndpointName=endpoint_name, ContentType='application/x-text', Body=encoded_text, Accept='application/json;verbose')
+    
+    
+    model_predictions = json.loads(response['Body'].read())
+    embedding = model_predictions['embedding']
+    
+    #response = event + " hello from lambda_handler"
+    
+    
+    return {
+        'statusCode': 200,
+        'body': json.dumps(embedding)
+    }
+
+'''

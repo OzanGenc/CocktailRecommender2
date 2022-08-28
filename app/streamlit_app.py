@@ -54,10 +54,13 @@ if user_input:
     
     st.markdown("**Given Cocktail is** [{}]({})".format(user_input.upper(), 'https://cocktailpartyapp.com/'))
     
-    st.markdown("**Recommended Cocktails are** [{}]({}), [{}]({})".format(recommended_cocktails.index[0], 'https://cocktailpartyapp.com/', 
-                recommended_cocktails.index[1], 'https://cocktailpartyapp.com/'))
-    #st.markdown("**                         ** [{}]({})".format(recommended_cocktails.index[1], 'https://cocktailpartyapp.com/'))
-    
+    st.markdown("**Recommended Cocktails are** [{}]({}), [{}]({}), [{}]({}), [{}]({}), [{}]({}), [{}]({})".format(
+        recommended_cocktails.index[0], 'https://cocktailpartyapp.com/', 
+        recommended_cocktails.index[1], 'https://cocktailpartyapp.com/', 
+        recommended_cocktails.index[2], 'https://cocktailpartyapp.com/',
+        recommended_cocktails.index[3], 'https://cocktailpartyapp.com/',
+        recommended_cocktails.index[4], 'https://cocktailpartyapp.com/',
+        recommended_cocktails.index[5], 'https://cocktailpartyapp.com/'))
     
     
     fig, ax = plt.subplots()

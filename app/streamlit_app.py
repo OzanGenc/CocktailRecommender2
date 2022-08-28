@@ -52,14 +52,20 @@ if user_input:
         
     recommended_cocktails = similarity_df.loc[user_input.upper()].sort_values(ascending=False)[1:5]
     
-    #st.markdown("**Given Cocktail is** {}".format(recommended_cocktails))
+    st.markdown("**Given Cocktail is** [{}]({})".format(recommended_cocktails, 'https://cocktailpartyapp.com/'))
     
-    st.markdown("**Given Cocktail is** [{}]({})".format(recommended_cocktails.index[0], 'https://cocktailpartyapp.com/'))
+    #st.markdown("**Given Cocktail is** [{}]({})".format(recommended_cocktails.index[0], 'https://cocktailpartyapp.com/'))
+    
+    
+    recommended_cocktail_list = []
+
+    for i in range(len(recommended_cocktails)):
+        recommended_cocktail_list.append('[{}]https://cocktailpartyapp.com/'.format(recommended_cocktails[i]))
     
     
     
     fig, ax = plt.subplots()
-    ax.barh(recommended_cocktails.index, recommended_cocktails.values)
+    ax.barh(recommended_cocktail_list, recommended_cocktails.values)
     ax.invert_yaxis()
     ax.set_title('Similarities to given cocktail')
     st.pyplot(fig)

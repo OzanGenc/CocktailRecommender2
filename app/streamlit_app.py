@@ -48,13 +48,13 @@ user_input = st.text_input(label="Please write a cocktail name.").upper()
 
 if user_input:
   
-  try:
+  #try:
         
-    recommended_cocktails = similarity_df.loc[user_input.upper()].sort_values(ascending=False)[1:6]
+  recommended_cocktails = similarity_df.loc[user_input.upper()].sort_values(ascending=False)[1:6]
     
-    st.markdown("**Given Cocktail is** [{}]({})".format(user_input.upper(), 'https://cocktailpartyapp.com/'))
+  st.markdown("**Given Cocktail is** [{}]({})".format(user_input.upper(), 'https://cocktailpartyapp.com/'))
     
-    st.markdown("**Recommended Cocktails are** [{}]({}), [{}]({}), [{}]({}), [{}]({}), [{}]({}), [{}]({})".format(
+  st.markdown("**Recommended Cocktails are** [{}]({}), [{}]({}), [{}]({}), [{}]({}), [{}]({}), [{}]({})".format(
         recommended_cocktails.index[0], 'https://cocktailpartyapp.com/', 
         recommended_cocktails.index[1], 'https://cocktailpartyapp.com/', 
         recommended_cocktails.index[2], 'https://cocktailpartyapp.com/',
@@ -63,17 +63,17 @@ if user_input:
         recommended_cocktails.index[5], 'https://cocktailpartyapp.com/'))
     
     
-    fig, ax = plt.subplots()
-    ax.barh(recommended_cocktails.index, recommended_cocktails.values)
-    ax.invert_yaxis()
-    ax.set_title('Similarities to given cocktail')
-    st.pyplot(fig)
-
+  fig, ax = plt.subplots()
+  ax.barh(recommended_cocktails.index, recommended_cocktails.values)
+  ax.invert_yaxis()
+  ax.set_title('Similarities to given cocktail')
+  st.pyplot(fig)
+  '''
   except:
   
     response = requests.post(api_url, json = user_input)
     response_ = response.json()["body"]
     st.markdown("**Given Cocktail is** {}".format(response_))
   
-  
+  '''
 

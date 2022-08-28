@@ -8,6 +8,10 @@ import matplotlib.pyplot as plt
 st.title("Cocktail Recommender 2.0!")
 
 
+st.markdown("Cocktail Recommender 2.0 is an improved version of [Cocktail Recommender](https://cocktail-recommender.herokuapp.com/). It is a tool that recommends cocktails based on provided cocktail name or ingredients. You can provide name of a cocktail to find similar cocktails to it or you can write ingedients you like and get recommendations based on that.")
+
+
+
 embedding_button = st.radio(
   "Similarity will be calculated using either Ingredients or All Information about the cocktail.",
   ('Only Ingredients', 'All Information'))

@@ -29,8 +29,8 @@ def lambda_handler(event, context):
 
 '''
 
-df = pd.read_pickle("./df_universal_embedded.pkl")
-similarity_df = pd.read_pickle("./similarity_df.pkl")
+df = pd.read_pickle("../df_universal_embedded.pkl")
+similarity_df = pd.read_pickle("../similarity_df.pkl")
 
 st.title("Cocktail Recommender 2.0!")
 

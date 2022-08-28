@@ -54,7 +54,7 @@ if user_input:
     
     #st.markdown("**Given Cocktail is** {}".format(recommended_cocktails))
     
-    st.markdown("**Given Cocktail is** [{}]{}".format(recommended_cocktails.index[0], 'https://cocktailpartyapp.com/'))
+    st.markdown("**Given Cocktail is** [{}]({})".format(recommended_cocktails.index[0], 'https://cocktailpartyapp.com/'))
     
     
     

@@ -48,31 +48,31 @@ user_input = st.text_input(label="Please write a cocktail name.").upper()
 
 if user_input:
   
-  #try:
+  try:
         
-  recommended_cocktails = similarity_df.loc[user_input].sort_values(ascending=False)[1:6]
+    recommended_cocktails = similarity_df.loc[user_input].sort_values(ascending=False)[1:6]
     
-  st.markdown("**Given Cocktail is** [{}]({})".format(user_input, df.loc[user_input]['link']))
+    st.markdown("**Given Cocktail is** [{}]({})".format(user_input, df.loc[user_input]['link']))
     
-  st.markdown("**Recommended Cocktails are** [{}]({}) -- [{}]({}) -- [{}]({}) -- [{}]({}) -- [{}]({})".format(
-        recommended_cocktails.index[0], df.loc[recommended_cocktails.index[0]]['link'], 
-        recommended_cocktails.index[1], df.loc[recommended_cocktails.index[1]]['link'], 
-        recommended_cocktails.index[2], df.loc[recommended_cocktails.index[2]]['link'],
-        recommended_cocktails.index[3], df.loc[recommended_cocktails.index[3]]['link'],
-        recommended_cocktails.index[4], df.loc[recommended_cocktails.index[4]]['link']))
+    st.markdown("**Recommended Cocktails are** [{}]({}) -- [{}]({}) -- [{}]({}) -- [{}]({}) -- [{}]({})".format(
+            recommended_cocktails.index[0], df.loc[recommended_cocktails.index[0]]['link'], 
+            recommended_cocktails.index[1], df.loc[recommended_cocktails.index[1]]['link'], 
+            recommended_cocktails.index[2], df.loc[recommended_cocktails.index[2]]['link'],
+            recommended_cocktails.index[3], df.loc[recommended_cocktails.index[3]]['link'],
+            recommended_cocktails.index[4], df.loc[recommended_cocktails.index[4]]['link']))
     
     
-  fig, ax = plt.subplots()
-  ax.barh(recommended_cocktails.index, recommended_cocktails.values)
-  ax.invert_yaxis()
-  ax.set_title('Similarities to given cocktail')
-  st.pyplot(fig)
-  '''
-  except:
+    fig, ax = plt.subplots()
+    ax.barh(recommended_cocktails.index, recommended_cocktails.values)
+    ax.invert_yaxis()
+    ax.set_title('Similarities to given cocktail')
+    st.pyplot(fig)
+    
+    except:
   
-    response = requests.post(api_url, json = user_input)
-    response_ = response.json()["body"]
-    st.markdown("**Given Cocktail is** {}".format(response_))
+      response = requests.post(api_url, json = user_input)
+      response_ = response.json()["body"]
+      st.markdown("**Given Cocktail is** {}".format(response_))
   
-  '''
+  
 

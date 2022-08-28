@@ -44,8 +44,6 @@ user_input = None
 user_input = st.text_input(label="Please write a cocktail name.").upper()
 
 
-
-
 if user_input:
   
   try:
@@ -68,11 +66,11 @@ if user_input:
     ax.set_title('Similarities to given cocktail')
     st.pyplot(fig)
     
-    except:
+  except:
   
-      response = requests.post(api_url, json = user_input)
-      response_ = response.json()["body"]
-      st.markdown("**Given Cocktail is** {}".format(response_))
+    response = requests.post(api_url, json = user_input)
+    response_ = response.json()["body"]
+    st.markdown("**Given Cocktail is** {}".format(response_))
   
   
 

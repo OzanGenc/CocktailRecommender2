@@ -30,8 +30,13 @@ def lambda_handler(event, context):
 
 '''
 
-df = pd.read_pickle("./df_universal_embedded.pkl")
-similarity_df = pd.read_pickle("./similarity_df.pkl")
+# embedding_type is 'ingredients' or 'content'
+embedding_type = 'ingredients' 
+
+df = pd.read_pickle("./df_universal_embedded_{}.pkl".format(embedding_type))
+similarity_df = pd.read_pickle("./similarity_{}_df.pkl".format(embedding_type))
+
+
 
 st.title("Cocktail Recommender 2.0!")
 

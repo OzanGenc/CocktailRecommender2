@@ -55,6 +55,7 @@ if user_input:
     st.markdown("**Given Cocktail is** [{}]({})".format(user_input.upper(), 'https://cocktailpartyapp.com/'))
     
     st.markdown("**Recommended Cocktails are** [{}]({})".format(recommended_cocktails.index[0], 'https://cocktailpartyapp.com/'))
+    st.markdown("**                         ** [{}]({})".format(recommended_cocktails.index[1], 'https://cocktailpartyapp.com/'))
     
     
     

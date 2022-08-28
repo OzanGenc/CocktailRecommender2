@@ -31,10 +31,26 @@ def lambda_handler(event, context):
 '''
 
 # embedding_type is 'ingredients' or 'content'
-embedding_type = 'ingredients' 
+#embedding_type = 'ingredients' 
 
-df = pd.read_pickle("./df_universal_embedded_{}.pkl".format(embedding_type))
-similarity_df = pd.read_pickle("./similarity_{}_df.pkl".format(embedding_type))
+
+embedding_button = st.radio(
+     "What's your favorite movie genre",
+     ('Ingredients', 'All Content'))
+
+if embedding_button == 'Ingredients':
+     st.write('You selected comedy.')
+     df = pd.read_pickle("./df_universal_embedded_ingredients.pkl")
+     similarity_df = pd.read_pickle("./similarity_ingredients_df.pkl")
+ else:
+     st.write("You didn't select comedy.")
+     df = pd.read_pickle("./df_universal_embedded_content.pkl")
+     similarity_df = pd.read_pickle("./similarity_content_df.pkl")
+        
+        
+
+#df = pd.read_pickle("./df_universal_embedded_{}.pkl".format(embedding_type))
+#similarity_df = pd.read_pickle("./similarity_{}_df.pkl".format(embedding_type))
 
 
 

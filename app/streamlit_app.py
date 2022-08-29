@@ -37,7 +37,7 @@ else:
 
 user_input = None
 
-user_input = st.text_input(label="Please write a cocktail name, ingredients, or a cocktail desciption.").upper()
+user_input = st.text_input(label="Please write a cocktail name, ingredients, or a cocktail description.").upper()
 
 
 

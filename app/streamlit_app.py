@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 import requests
 import numpy as np
 from sklearn.metrics.pairwise import cosine_similarity
-
+from PIL import Image
 
 st.title("Cocktail Recommender 2.0!")
 

@@ -5,6 +5,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import requests
 import numpy as np
+from sklearn.metrics.pairwise import cosine_similarity
 
 
 st.title("Cocktail Recommender 2.0!")

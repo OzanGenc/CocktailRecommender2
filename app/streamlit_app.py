@@ -132,7 +132,7 @@ if user_input:
       fig, ax = plt.subplots()
       ax.barh(recommended_cocktails.index, recommended_cocktails['similarity'].values)
       ax.invert_yaxis()
-      ax.set_title('Similarities to given cocktail')
+      ax.set_title('Similarities to given description')
       st.pyplot(fig)
       
       

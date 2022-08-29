@@ -23,12 +23,14 @@ embedding_button = st.radio(
 
 if embedding_button == 'Only Ingredients':
   #df = pd.read_pickle("./df_universal_embedded_ingredients.pkl")
-  embeddings = df['ingredients_embeddings']
+  embedding_type = 'ingredients_embeddings'
+  #embeddings = df['ingredients_embeddings']
   similarity_df = pd.read_pickle("./similarity_ingredients_df.pkl")
 
 else:
   #df = pd.read_pickle("./df_universal_embedded_content.pkl")
-  embeddings = df['content_embeddings']
+  embedding_type = 'content_embeddings'
+  #embeddings = df['content_embeddings']
   similarity_df = pd.read_pickle("./similarity_content_df.pkl")
         
         
@@ -78,7 +80,7 @@ if user_input:
     cos_sim_list = []
 
     for index, row in df.iterrows():
-      X = np.array(row['ingredients_embeddings']).reshape(1, -1)
+      X = np.array(row[embedding_type]).reshape(1, -1)
       cos_sim = cosine_similarity(X, Y)
       cos_sim_list.append(cos_sim[0][0])
 

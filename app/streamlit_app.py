@@ -48,7 +48,7 @@ user_input = st.text_input(label="Please write a cocktail name.").upper()
 
 
 if user_input == 'I LOVE YOU BABY KO'
-  image = Image.open('./babyko.jpg')
+  image = Image.open('./babyko.png')
   st.image(image, use_column_width=True)
   st.markdown("**I love you too baby ko :black_heart:**" )
 

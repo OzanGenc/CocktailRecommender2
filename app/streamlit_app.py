@@ -12,17 +12,20 @@ st.markdown("Cocktail Recommender 2.0 is an improved version of [Cocktail Recomm
 st.markdown("You can provide name of a cocktail (e.g. Margarita) to find similar cocktails to it, you can write ingedients (e.g. Vodka, Orange juice) or you can describe (e.g. fruity, refreshing) what kind of cocktail you would like to enjoy, and get recommendations based on that.")
 st.markdown("Cheers :tropical_drink:")
 
+df = pd.read_pickle("./df_universal_embeddings.pkl")
 
 embedding_button = st.radio(
   "Similarity will be calculated using either Ingredients or All Information about the cocktail.",
   ('Only Ingredients', 'All Information'))
 
 if embedding_button == 'Only Ingredients':
-  df = pd.read_pickle("./df_universal_embedded_ingredients.pkl")
+  #df = pd.read_pickle("./df_universal_embedded_ingredients.pkl")
+  embeddings = df['ingredients_embeddings']
   similarity_df = pd.read_pickle("./similarity_ingredients_df.pkl")
 
 else:
-  df = pd.read_pickle("./df_universal_embedded_content.pkl")
+  #df = pd.read_pickle("./df_universal_embedded_content.pkl")
+  embeddings = df['content_embeddings']
   similarity_df = pd.read_pickle("./similarity_content_df.pkl")
         
         

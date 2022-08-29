@@ -68,52 +68,57 @@ if user_input:
   
   except:
     
-    response = requests.post(os.environ.get("api_url"), json = user_input)
-    user_input_embedding = response.json()["body"]
+    try:
+    
+      response = requests.post(os.environ.get("api_url"), json = user_input)
+      user_input_embedding = response.json()["body"]
 
-    Y = [float(item) for item in user_input_embedding[1:-1].split(',')]
-    Y = np.array(Y).reshape(1, -1)
+      Y = [float(item) for item in user_input_embedding[1:-1].split(',')]
+      Y = np.array(Y).reshape(1, -1)
       
       
-    similarity_to_user_input = pd.DataFrame(index=df.index)
+      similarity_to_user_input = pd.DataFrame(index=df.index)
 
-    cos_sim_list = []
+      cos_sim_list = []
 
-    for index, row in df.iterrows():
-      X = np.array(row[embedding_type]).reshape(1, -1)
-      cos_sim = cosine_similarity(X, Y)
-      cos_sim_list.append(cos_sim[0][0])
+      for index, row in df.iterrows():
+        X = np.array(row[embedding_type]).reshape(1, -1)
+        cos_sim = cosine_similarity(X, Y)
+        cos_sim_list.append(cos_sim[0][0])
 
         
-    similarity_to_user_input['similarity'] = cos_sim_list
+      similarity_to_user_input['similarity'] = cos_sim_list
         
-    recommended_cocktails = similarity_to_user_input.sort_values(by='similarity', ascending=False)[:5]
+      recommended_cocktails = similarity_to_user_input.sort_values(by='similarity', ascending=False)[:5]
       
       
       
-    #st.markdown("**Given Cocktail is** [{}]({})".format(user_input, df.loc[user_input]['link']))
+      #st.markdown("**Given Cocktail is** [{}]({})".format(user_input, df.loc[user_input]['link']))
     
-    st.markdown("**Recommended Cocktails are**" )
+      st.markdown("**Recommended Cocktails are**" )
     
-    st.markdown("**[{}]({}) - :cocktail: - [{}]({}) - :tropical_drink: - [{}]({}) - :wine_glass: - [{}]({}) - :beer: - [{}]({})**".format(
-          recommended_cocktails.index[0], df.loc[recommended_cocktails.index[0]]['link'], 
-          recommended_cocktails.index[1], df.loc[recommended_cocktails.index[1]]['link'], 
-          recommended_cocktails.index[2], df.loc[recommended_cocktails.index[2]]['link'],
-          recommended_cocktails.index[3], df.loc[recommended_cocktails.index[3]]['link'],
-          recommended_cocktails.index[4], df.loc[recommended_cocktails.index[4]]['link']))
+      st.markdown("**[{}]({}) - :cocktail: - [{}]({}) - :tropical_drink: - [{}]({}) - :wine_glass: - [{}]({}) - :beer: - [{}]({})**".format(
+            recommended_cocktails.index[0], df.loc[recommended_cocktails.index[0]]['link'], 
+            recommended_cocktails.index[1], df.loc[recommended_cocktails.index[1]]['link'], 
+            recommended_cocktails.index[2], df.loc[recommended_cocktails.index[2]]['link'],
+            recommended_cocktails.index[3], df.loc[recommended_cocktails.index[3]]['link'],
+            recommended_cocktails.index[4], df.loc[recommended_cocktails.index[4]]['link']))
     
     
-    fig, ax = plt.subplots()
-    ax.barh(recommended_cocktails.index, recommended_cocktails['similarity'].values)
-    ax.invert_yaxis()
-    ax.set_title('Similarities to given cocktail')
-    st.pyplot(fig)
+      fig, ax = plt.subplots()
+      ax.barh(recommended_cocktails.index, recommended_cocktails['similarity'].values)
+      ax.invert_yaxis()
+      ax.set_title('Similarities to given cocktail')
+      st.pyplot(fig)
+      
+      
+    except:
+      st.markdown("**The given cocktail couldn't be found in the database. Also, the embedding model is not currently in service, please use the [first version of the application](https://cocktail-recommender.herokuapp.com/).**")
+      
       
   
   
-  
-  
-  
+
   
   '''
   except:

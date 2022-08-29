@@ -8,7 +8,10 @@ import matplotlib.pyplot as plt
 st.title("Cocktail Recommender 2.0!")
 
 
-st.markdown("Cocktail Recommender 2.0 is an improved version of [Cocktail Recommender](https://cocktail-recommender.herokuapp.com/). It is a tool that recommends cocktails based on provided cocktail name or ingredients. You can provide name of a cocktail to find similar cocktails to it or you can write ingedients you like and get recommendations based on that.")
+st.markdown("Cocktail Recommender 2.0 is an improved version of [Cocktail Recommender](https://cocktail-recommender.herokuapp.com/). 
+              It is a tool that recommends cocktails based on provided name, ingredients or description of a cocktail. 
+              You can provide name of a cocktail (e.g. Margarita) to find similar cocktails to it, you can write ingedients (e.g. Vodka, Orange juice)
+              you like or you can describe (e.g. fruity, refreshing) what kind of cocktail you would like to enjoy, and get recommendations based on that.")
 
 
 

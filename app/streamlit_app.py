@@ -50,7 +50,7 @@ if user_input:
     
     st.markdown("**Recommended Cocktails are**" )
     
-    st.markdown("**[{}]({}) - :cocktail: - [{}]({}) - :tropical_drink: - [{}]({}) - :wine_glass: - [{}]({}) - :beer: - [{}]({})**".format(
+    st.markdown("**[{}]({}) - :cocktail: - [{}]({}) - :tropical_drink: - [{}]({}) - :wine_glass: - [{}]({}) - :tumbler_glass: - [{}]({})**".format(
             recommended_cocktails.index[0], df.loc[recommended_cocktails.index[0]]['link'], 
             recommended_cocktails.index[1], df.loc[recommended_cocktails.index[1]]['link'], 
             recommended_cocktails.index[2], df.loc[recommended_cocktails.index[2]]['link'],
@@ -97,7 +97,7 @@ if user_input:
     
       st.markdown("**Recommended Cocktails are**" )
     
-      st.markdown("**[{}]({}) - :cocktail: - [{}]({}) - :tropical_drink: - [{}]({}) - :wine_glass: - [{}]({}) - :beer: - [{}]({})**".format(
+      st.markdown("**[{}]({}) - :cocktail: - [{}]({}) - :tropical_drink: - [{}]({}) - :wine_glass: - [{}]({}) - :tumbler_glass: - [{}]({})**".format(
             recommended_cocktails.index[0], df.loc[recommended_cocktails.index[0]]['link'], 
             recommended_cocktails.index[1], df.loc[recommended_cocktails.index[1]]['link'], 
             recommended_cocktails.index[2], df.loc[recommended_cocktails.index[2]]['link'],

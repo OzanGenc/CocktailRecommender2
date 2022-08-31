@@ -19,7 +19,7 @@ df = pd.read_pickle("./df_universal_embeddings.pkl")
 
 embedding_button = st.radio(
   "Similarity will be calculated using either Ingredients or All Information about the cocktail.",
-  ('Only Ingredients', 'All Information'))
+  ('Only Ingredients --> Choose this option if you provide only ingredients', 'Descriptions --> Choose this option if you provide a cocktail description with ingredients'))
 
 if embedding_button == 'Only Ingredients':
   embedding_type = 'ingredients_embeddings'
@@ -35,18 +35,13 @@ user_input = None
 user_input = st.text_input(label="Please write a cocktail name, ingredients, or a cocktail description.").upper()
 
 
+
 #----------------------
-
-
 
 if user_input == 'I LOVE YOU BABY KO':
   image = Image.open('./babyko.png')
   st.image(image, use_column_width=True)
   st.markdown("**I love you too baby ko :black_heart:**" )
-
-  #st.success('Recommended based on the name of cocktail provided!')
-
-
 
 #------------------------
 

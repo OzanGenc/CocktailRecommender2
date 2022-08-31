@@ -9,4 +9,4 @@ This repository contains Jupyter notebooks for web scraping and batch transformi
 
 You can use the system [here](https://cocktailrecommender2.herokuapp.com/)
 
-You can learn more about the system reading this blog post.
+You can learn more about the system reading this [blog post](https://ozangenc.medium.com/give-me-another-drink-cocktail-recommender-2-8a0f96c6742).

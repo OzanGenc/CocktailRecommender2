@@ -21,7 +21,7 @@ embedding_button = st.radio(
   "Similarity will be calculated using either Ingredients or All Information about the cocktail.",
   ('Only Ingredients --> Choose this option if you provide only ingredients', 'Descriptions --> Choose this option if you provide a cocktail description with ingredients'))
 
-if embedding_button == 'Only Ingredients':
+if embedding_button == 'Only Ingredients --> Choose this option if you provide only ingredients':
   embedding_type = 'ingredients_embeddings'
   similarity_df = pd.read_pickle("./similarity_ingredients_df.pkl")
 

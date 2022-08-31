@@ -22,25 +22,17 @@ embedding_button = st.radio(
   ('Only Ingredients', 'All Information'))
 
 if embedding_button == 'Only Ingredients':
-  #df = pd.read_pickle("./df_universal_embedded_ingredients.pkl")
   embedding_type = 'ingredients_embeddings'
-  #embeddings = df['ingredients_embeddings']
   similarity_df = pd.read_pickle("./similarity_ingredients_df.pkl")
 
 else:
-  #df = pd.read_pickle("./df_universal_embedded_content.pkl")
   embedding_type = 'content_embeddings'
-  #embeddings = df['content_embeddings']
   similarity_df = pd.read_pickle("./similarity_content_df.pkl")
         
         
-
 user_input = None
 
 user_input = st.text_input(label="Please write a cocktail name, ingredients, or a cocktail description.").upper()
-
-
-
 
 
 #----------------------
@@ -57,10 +49,6 @@ if user_input == 'I LOVE YOU BABY KO':
 
 
 #------------------------
-
-
-
-
 
 
 
@@ -116,8 +104,6 @@ if user_input:
       recommended_cocktails = similarity_to_user_input.sort_values(by='similarity', ascending=False)[:5]
       
       
-      
-      #st.markdown("**Given Cocktail is** [{}]({})".format(user_input, df.loc[user_input]['link']))
     
       st.markdown("**Recommended Cocktails are**" )
     
